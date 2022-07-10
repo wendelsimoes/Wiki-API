@@ -9,7 +9,7 @@ use("wikiDB");
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.
 // db.sales.drop();
-db.articles.drop();
+// db.articles.drop();
 
 // Insert a few documents into the sales collection.
 // db.sales.insertMany([
@@ -22,13 +22,13 @@ db.articles.drop();
 //   { "_id": 7, "item": "def", "price": 7.5, "quantity": 10, "date": new Date("2015-09-10T08:43:00Z") },
 //   { "_id": 8, "item": "abc", "price": 10, "quantity": 5, "date": new Date("2016-02-06T20:20:13Z") },
 // ]);
-db.articles.insertMany([
-  { "title": "REST", "content": "REST is a short for Representational State Transfer, It's an architectural style for designing API's." },
-  { "title": "Mongoose", "content": "Mongoose is a JavaScript object-oriented programming library that creates a connection between MongoDB and the Express web application framework." },
-  { "title": "Express", "content": "Express.js, or simply Express, is a back end web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and API's. It has been called the de facto standard server framework for Node.js." },
-  { "title": "Node", "content": "Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser, which was designed to build scalable network applications." }
+// db.articles.insertMany([
+//   { "title": "REST", "content": "REST is a short for Representational State Transfer, It's an architectural style for designing API's." },
+//   { "title": "Mongoose", "content": "Mongoose is a JavaScript object-oriented programming library that creates a connection between MongoDB and the Express web application framework." },
+//   { "title": "Express", "content": "Express.js, or simply Express, is a back end web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and API's. It has been called the de facto standard server framework for Node.js." },
+//   { "title": "Node", "content": "Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser, which was designed to build scalable network applications." }
 
-]);
+// ]);
 
 // Run a find command to view items sold on April 4th, 2014.
 // db.sales.find({ date: { $gte: new Date("2014-04-04"), $lt: new Date("2014-04-05") } });

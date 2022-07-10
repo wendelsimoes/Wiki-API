@@ -17,6 +17,7 @@ app.set("view engine", "ejs");
 // Serve images, CSS files, and JavaScript files in a directory named public
 app.use(express.static("public"));
 
+// Article plural endpoints
 app
   .route("/articles")
 
@@ -45,6 +46,57 @@ app
         res.send("Unexpected problem occured");
       } else {
         res.send("Successfully deleted all articles");
+      }
+    });
+  });
+
+// Article singular endpoints
+app
+  .route("/articles/:title")
+  .get((req, res) => {
+    Article.findOne({ title: req.params.title }).exec((err, article) => {
+      if (err) {
+        res.send("Unexpected problem occured");
+      } else {
+        res.send(article);
+      }
+    });
+  })
+
+  .put((req, res) => {
+    Article.updateOne(
+      { title: req.params.title },
+      { title: req.body.title, content: req.body.content },
+      (err) => {
+        if (err) {
+          res.send("Unexpected problem occured");
+        } else {
+          res.send("Updated sucessfully");
+        }
+      }
+    );
+  })
+
+  .patch((req, res) => {
+    Article.updateOne(
+      { title: req.params.title },
+      { $set: req.body },
+      (err) => {
+        if (err) {
+          res.send("Unexpected problem occured");
+        } else {
+          res.send("Updated sucessfully");
+        }
+      }
+    );
+  })
+
+  .delete((req, res) => {
+    Article.deleteOne({ title: req.params.title }, (err) => {
+      if (err) {
+        res.send("Unexpected problem occured");
+      } else {
+        res.send("Successfully deleted");
       }
     });
   });
